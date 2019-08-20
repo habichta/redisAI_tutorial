@@ -8,7 +8,9 @@ import ml2rt
 import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow as tf
-from tensorflow.python.saved_model import simple_save
+import tensorflow.compat.v1 as tf1
+tf1.disable_v2_behavior()
+
 from tensorflow.keras import datasets, layers, models
 print(tf.__version__)
 
@@ -39,6 +41,5 @@ model.compile(optimizer='adam',
               metrics=['accuracy'])
 
 model.fit(train_images, train_labels, epochs=1)
-tf.compat.v1.saved_model.simple_save(model, "reference_model/1", inputs={'input':input}, outputs={'output':output})
-
+tf.saved_model.save(model, "reference_model/1")
 
