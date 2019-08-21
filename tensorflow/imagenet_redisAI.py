@@ -9,6 +9,7 @@ con=rai.Client()
 filepath = 'data/guitar.jpg'
 numpy_img = io.imread(filepath).astype(dtype=np.float32)
 numpy_img = np.expand_dims(numpy_img, axis=0) / 255
+print(numpy_img)
 
 
 #con.modelset('model',rai.Backend.tf, rai.Device.cpu, input=['images'], output=['output'], data=model)

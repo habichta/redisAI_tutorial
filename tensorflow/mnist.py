@@ -41,6 +41,5 @@ model.compile(optimizer='adam',
               metrics=['accuracy'])
 
 model.fit(train_images, train_labels, epochs=1)
-keras.experimental.export_saved_model(model, 'reference_model/1')
-#tf.saved_model.save(model, "reference_model/1")
+tf.saved_model.save(model, "reference_model/1")
 
